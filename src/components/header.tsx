@@ -1,0 +1,1 @@
+export const Header = () => (<header><h1>Resty Venture's Cookies</h1></header>);
