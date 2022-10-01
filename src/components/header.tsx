@@ -1,1 +1,2 @@
-export const Header = () => (<header><h1>Resty Venture's Cookies</h1></header>);
+import './form_style.scss'
+export const Header = () => (<header><h1>Resty Venture</h1></header>);
