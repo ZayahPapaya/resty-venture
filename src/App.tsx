@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Footer } from './components/footer';
-import { Header } from './components/header';
-import { Results } from './components/results';
-import { Form } from './components/form';
+import { Footer } from './components/footer/footer';
+import { Header } from './components/header/header';
+import { Results } from './components/results/results';
+import { Form } from './components/form/form';
 
 class App extends React.Component {
   constructor(props: any) {
