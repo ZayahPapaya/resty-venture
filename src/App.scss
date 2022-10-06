@@ -1,0 +1,41 @@
+/* #firstChild{
+  padding-top: 80px;
+}
+body {
+  background-color: rgb(110, 63, 108);
+  color: rgb(250, 250, 111);
+} */
+$backgroundColor: rgb(110, 63, 108);
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $backgroundColor;
+  height: 100%;
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  footer {
+    background: darken($backgroundColor, 50);
+    border-top: 1px solid grey;
+    padding: 1em 3em;
+    margin: 0;
+  }
+
+  header {
+    background: darken($backgroundColor, 75);
+    border-bottom: 1px solid grey;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+}

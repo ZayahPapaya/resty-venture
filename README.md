@@ -52,3 +52,7 @@ Requirements:
 [x] convert app child components from classes to functions
 [x] style components
 [x] core functionality unchanged minus state
+[] form passes REST method and url to API
+[x] page renders request results
+[x] useState hook rather than this.setState
+[] form uses user input rather than hardcoded filler

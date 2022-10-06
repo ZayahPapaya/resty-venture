@@ -1,43 +1,48 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import axios from 'axios';
+import './App.scss';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
 import { Results } from './components/results/results';
 import { Form } from './components/form/form';
 
-class App extends React.Component {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
+const App = () => {
+  let [state, setState] = useState({});
+  const callApi = async (request: any) => {
+    console.log(`it's callback time`, request)
+    let data;
+    switch (request?.method) {
+      case 'GET':
+        data = await axios.get(request.url);
+        break;
+      case 'POST':
+        data = await axios.post(request.url);
+        break;
+      case 'PUT':
+        data = await axios.put(request.url);
+        break;
+      case 'DELETE':
+        data = await axios.delete(request.url);
+        break;
+
+      default:
+        console.log('No methods?');
+        break;
+    }
+    console.log(data)
+    state = { data, request };
+    setState(state);
   }
-  callApi = (request: string) => {
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake1', url: 'http://pog.com/1' },
-        { name: 'fake2', url: 'http://pog.com/2' },
-      ],
-    };
-    this.setState({ data, request });
-  }
-  render() {
-    //{this.state.requestParams.method}
-    //{this.state.requestParams.url}
-    //data={this.state.data}
-    return (
-      <>
-        <Header />
-        <div id='firstChild'>Request Method: </div>
-        <div>URL: </div>
-        <Form handleApiCall={this.callApi} />
-        <Results />
-        <Footer />
-      </>
-    );
-  }
+  return (
+    <>
+      <Header />
+      <div id='firstChild'>Request Method: </div>
+      <div>URL: </div>
+      <Form callApi={callApi} />
+      <Results results={state} />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
