@@ -3,9 +3,9 @@ const handleSubmit = (e: any, callback: Function) => {
   e.preventDefault();
   const formData = {
     method:'GET',
-    url: 'https://pokeapi.co/api/v2/pokemon',
+    url: e.target[0].value, //'https://pokeapi.co/api/v2/pokemon'
   };
-  console.log('handling button')
+  console.log('handling button', e.target[0].value)
   callback(formData);
 }
 
