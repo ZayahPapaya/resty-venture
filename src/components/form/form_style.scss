@@ -1,14 +1,41 @@
-span {
-  display: flex;
-  flex-direction: column;
-  color: black;
-  background-color: rgb(255, 51, 0);
-  width: 60px;
-  text-align: center;
-  font-weight: bold;
-  font-style: italic;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-  margin-top: 2px;
+// span {
+//   display: flex;
+//   flex-direction: column;
+//   color: black;
+//   background-color: rgb(255, 51, 0);
+//   width: 60px;
+//   text-align: center;
+//   font-weight: bold;
+//   font-style: italic;
+//   border-color: black;
+//   border-style: solid;
+//   border-width: 2px;
+//   margin-top: 2px;
+// }
+
+$backgroundColor: rgb(255, 51, 0);
+$radius: 40%;
+
+form {
+  display: inline-block;
+  margin: auto;
+  width: 200px;
+
+  label {
+    display: flex;
+    margin: 1rem 0;
+
+    &.methods {
+      span {
+        cursor: pointer;
+        margin-right: 1rem;
+        padding: .25rem .5rem;
+        background: $backgroundColor;
+
+        &:hover, &.active {
+          background: rgb(253, 122, 89);
+        }
+      }
+    }
+  }
 }
