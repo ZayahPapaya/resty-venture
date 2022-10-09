@@ -10,26 +10,30 @@ const App = () => {
   let [state, setState] = useState({});
   const callApi = async (request: any) => {
     console.log(`it's callback time`, request)
-    let data;
-    switch (request?.method) {
-      case 'GET':
-        data = await axios.get(request.url);
-        break;
-      case 'POST':
-        data = await axios.post(request.url);
-        break;
-      case 'PUT':
-        data = await axios.put(request.url);
-        break;
-      case 'DELETE':
-        data = await axios.delete(request.url);
-        break;
+    //let data;
+    // switch (request?.method) {// axios.request
+    //   case 'GET':
+    //     data = await axios.get(request.url);
+    //     break;
+    //   case 'POST':
+    //     data = await axios.post(request.url);
+    //     break;
+    //   case 'PUT':
+    //     data = await axios.put(request.url);
+    //     break;
+    //   case 'DELETE':
+    //     data = await axios.delete(request.url);
+    //     break;
 
-      default:
-        console.log('No methods?');
-        break;
-    }
-    console.log(data)
+    //   default:
+    //     console.log('No methods?');
+    //     break;
+    // }
+    let response = await fetch(request.url, {
+      method: request.method,
+    });
+    let data = await response.json();
+    //console.log(data)
     state = { data, request };
     setState(state);
   }
