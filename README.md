@@ -56,3 +56,8 @@ Requirements:
 [x] page renders request results
 [x] useState hook rather than this.setState
 [] form uses user input rather than hardcoded filler
+
+## Attributation
+
+isSelected and the related styling changing is attributed to Hugo
+He came up with this fantastic solve for both setting an active button and returning current selected method for the form
